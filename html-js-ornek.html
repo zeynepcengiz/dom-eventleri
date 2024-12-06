@@ -1,0 +1,112 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="content"> Merhaba Dünya!</div>
+    <script>
+        const element = document.getElementById("content");
+        element.style.color = "blue";
+        element.textContent = "Merhaba JavaScript!";
+    </script>
+    <!-- new example-->
+    <div id="greeting"></div>
+    <script>
+        const greeting = document.getElementById("greeting");
+        greeting.innerHTML = "<h1> Hoşgeldiniz! </h1>"
+    </script>
+    <!-- new example-->
+    <button id="changecolor"> Rengi Değiştir</button>
+    <div id="box" style="width: 100px ; height: 100px; background-color: blue;"></div>
+    <script>
+        document.getElementById("changecolor").onclick = function () {
+            const box = document.getElementById("box");
+            box.style.backgroundColor = "green";
+        }
+    </script>
+    <!-- new example-->
+    <ul id="list">
+        <li> Öğe 1</li>
+        <li> Öğe 2</li>
+    </ul>
+    <button id="addItem"> Öğe Ekle</button>
+    <script>
+        document.getElementById("addItem").onclick = function () {
+            const newItem = document.createElement("li");
+            newItem.textContent = "Yeni Öğe";
+            document.getElementById("list").appendChild(newItem);
+        }
+    </script><br>
+    <!-- new example-->
+    <input type="text" id="inputbox" placeholder="Adınızı Girin">
+    <p id="output"></p>
+    <script>
+        document.getElementById("inputbox").addEventListener("input",
+            function () {
+                const output = document.getElementById("output");
+                output.textContent = "Merhaba, " + this.value;
+            });
+    </script>
+    <!-- new example-->
+    <input type="text" id="itemInput" placeholder="Bir öğe ekleyin.">
+    <button id="addButton"> Ekle</button>
+    <ul id="itemList"></ul>
+    <script>
+        document.getElementById("addButton").onclick = function () {
+            const input = document.getElementById("itemInput");
+            const newItem = document.createElement("li");
+            newItem.textContent = input.value;
+            const list = document.getElementById("itemList");
+
+            //delete button
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Sil";
+            deleteButton.onclick = function () {
+                list.removeChild(newItem);
+            }
+
+            newItem.appendChild(deleteButton);
+            list.appendChild(newItem);
+
+            input.value = "";
+        };
+    </script>
+    <!-- new example-->
+    <button id="color"> Change Color</button>
+    <div id="colorBox" style="width: 50px; height: 50px; background-color: blue;"></div>
+    <script>
+        document.getElementById("color").onclick = function () {
+            const colorBox = document.getElementById("colorBox");
+            colorBox.style.backgroundColor = "black";
+        }
+    </script>
+    <!-- new example-->
+    <input type="text" id="paragraf" placeholder="Mesajınızı yazınız.">
+    <button id="addParagraf"> Öğe Ekle</button>
+    <div id="custom"></div>
+    <script>
+        document.getElementById("addParagraf").onclick = function () {
+            const paragraf = document.getElementById("paragraf");
+            const newItem = document.createElement("p");
+            newItem.textContent = paragraf.value;
+            document.getElementById("list").appendChild(newItem);
+            const custom = document.getElementById("custom");
+            custom.appendChild(newItem);
+            paragraf.value = "";
+        }
+    </script><br>
+    <!-- new example-->
+    <button id="button"> Change Back-Ground Color </button>
+    <script>
+        document.getElementById("button").onclick = function () {
+            const randomcolor = '#' + Math.floor(Math.random() * 16777215).toString();
+            console.log(randomcolor);
+            document.body.style.backgroundColor = randomcolor;
+        }
+    </script>
+
+</body>
+
+</html>
